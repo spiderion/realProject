@@ -11,7 +11,7 @@
     android:layout_marginStart="1dp"
     android:layout_marginEnd="1dp"
     app:cardCornerRadius="12dp"
-    tools:context=".aActivities.first.FirstActivity">
+    tools:context=".aActivities.FirstActivity">
 
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
@@ -53,18 +53,17 @@
 
         <TextView
             android:id="@+id/user_name"
-            android:layout_width="154dp"
-            android:layout_height="22dp"
-            android:layout_marginStart="15dp"
-            android:layout_marginTop="8dp"
+            android:layout_width="157dp"
+            android:layout_height="35dp"
+            android:layout_marginBottom="7dp"
+            android:layout_marginStart="8dp"
             android:layout_toEndOf="@id/profileImage"
             android:fontFamily="@font/aclonica"
-            android:gravity="top"
+            android:gravity="bottom"
             android:text="giovanni"
-            android:textSize="16sp"
+            android:textSize="14sp"
             app:layout_constraintBottom_toTopOf="@+id/mainImage"
-            app:layout_constraintStart_toEndOf="@+id/profileImage"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintStart_toEndOf="@+id/profileImage" />
 
         <TextView
             android:id="@+id/tagTitleTextView"
@@ -102,18 +101,19 @@
 
         <TextView
             android:id="@+id/timeAgo"
-            android:layout_width="0dp"
+            android:layout_width="151dp"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="7dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="17dp"
             android:text="3 days ago"
-            android:textAlignment="textEnd"
+            android:textAlignment="center"
             android:textSize="14sp"
-            app:layout_constraintBottom_toBottomOf="@+id/user_name"
+            app:layout_constraintBottom_toTopOf="@+id/mainImage"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/user_name"
-            app:layout_constraintTop_toTopOf="@+id/user_name"
-            app:layout_constraintVertical_bias="0.82" />
+            app:layout_constraintTop_toTopOf="parent" />
 
     </android.support.constraint.ConstraintLayout>
 

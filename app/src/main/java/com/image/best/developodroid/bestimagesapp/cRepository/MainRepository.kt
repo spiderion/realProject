@@ -11,6 +11,10 @@ import javax.inject.Inject
 
 class MainRepository @Inject constructor(database: MainDatabase, retrofit: RetrofitObj) {
 
+    companion object {
+        private const val TAG = "MainRepository"
+    }
+
     private var mMainDao = database.mainDao()
     private var mRetrofitObj = retrofit
 

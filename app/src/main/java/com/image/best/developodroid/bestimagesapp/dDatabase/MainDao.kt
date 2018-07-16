@@ -7,6 +7,10 @@ import com.image.best.developodroid.bestimagesapp.dDatabase.entities.MainObject
 @Dao
 interface MainDao {
 
+    companion object {
+        private const val TAG = "MainDao"
+    }
+
 
     @get:Query("SELECT * from MainObject")
     val allMainObj: LiveData<List<MainObject>>

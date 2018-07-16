@@ -15,4 +15,5 @@ class FirstModule {
 
         return MainViewModelFactory(mainRepository)
     }
+
 }

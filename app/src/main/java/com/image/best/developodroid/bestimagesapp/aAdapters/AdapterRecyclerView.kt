@@ -1,4 +1,4 @@
-package com.image.best.developodroid.bestimagesapp.aActivities.first
+package com.image.best.developodroid.bestimagesapp.aAdapters
 
 import android.graphics.Color
 import android.support.v7.widget.RecyclerView
@@ -12,6 +12,10 @@ import com.image.best.developodroid.bestimagesapp.dDatabase.entities.Result
 import kotlinx.android.synthetic.main.custom_view.view.*
 
 class AdapterRecyclerView : RecyclerView.Adapter<AdapterRecyclerView.CustomHolder>() {
+
+    companion object {
+        private const val TAG = "AdapterRecyclerView"
+    }
 
     private var mainObject : MainObject? = null
 
@@ -55,7 +59,7 @@ class AdapterRecyclerView : RecyclerView.Adapter<AdapterRecyclerView.CustomHolde
                 // layout background color
                 cardview.setCardBackgroundColor(Color.parseColor(item.color))
                 // likes
-                likesTextView.text= "${item.likes.toString()} likes"
+                likesTextView.text= "${item.likes} likes"
 
 
             }

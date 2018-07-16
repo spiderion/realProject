@@ -10,6 +10,10 @@ import retrofit2.http.Query
 
 interface Api {
 
+    companion object {
+        private const val TAG = "Api"
+    }
+
     @GET("/search/photos$apiKey")
     fun search(@Query("page")page:Int,@Query("query")value:String): Observable<MainObject>
 }

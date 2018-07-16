@@ -6,6 +6,7 @@ import android.support.test.InstrumentationRegistry
 import android.support.test.runner.AndroidJUnit4
 import com.image.best.developodroid.bestimagesapp.dDatabase.MainDatabase
 import com.image.best.developodroid.bestimagesapp.dDatabase.entities.MainObject
+import com.image.best.developodroid.bestimagesapp.dDatabase.entities.Result
 import org.junit.After
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -52,7 +53,7 @@ class MainDaoTest {
     @Test fun listOfMainObjMatchObjectInserted(){
 
         val mainObject  = MainObject()
-        mainObject.results = ArrayList()
+        mainObject.results = ArrayList<Result>()
         mainObject.total=32
         mainObject.total_pages=23
 

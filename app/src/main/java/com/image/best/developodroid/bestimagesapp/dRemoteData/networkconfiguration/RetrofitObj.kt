@@ -1,5 +1,6 @@
 package com.image.best.developodroid.bestimagesapp.dRemoteData.networkconfiguration
 
+import android.util.Log
 import com.image.best.developodroid.bestimagesapp.utils.Constants.Companion.BASE_URL
 import com.image.best.developodroid.bestimagesapp.utils.Constants.Companion.CONNECTION_TIMEOUT
 import com.image.best.developodroid.bestimagesapp.utils.Constants.Companion.READ_TIMEOUT
@@ -13,8 +14,12 @@ import java.util.concurrent.TimeUnit
 
 object RetrofitObj {
 
+        private const val TAG = "RetrofitObj"
+
+
     val api: Api
     get() {
+        Log.d(TAG, "api: retrofitObj build ")
 
         val intr = HttpLoggingInterceptor()
         intr.level = HttpLoggingInterceptor.Level.BODY

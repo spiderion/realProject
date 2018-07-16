@@ -13,9 +13,13 @@ import com.image.best.developodroid.bestimagesapp.utils.Converters
 @TypeConverters(Converters::class)
 abstract class MainDatabase :RoomDatabase(){
 
+
+
     abstract fun mainDao():MainDao
 
     companion object {
+        private const val TAG = "MainDatabase"
+
         private var INSTANCE: MainDatabase?=null
 
         fun getDatabase (context: Context):MainDatabase{

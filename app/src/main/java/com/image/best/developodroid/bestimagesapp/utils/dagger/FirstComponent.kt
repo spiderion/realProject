@@ -1,6 +1,7 @@
 package com.image.best.developodroid.bestimagesapp.utils.dagger
 
-import com.image.best.developodroid.bestimagesapp.aActivities.first.FirstActivity
+import com.image.best.developodroid.bestimagesapp.aActivities.FirstActivity
+import com.image.best.developodroid.bestimagesapp.aActivities.fragments.ImageListFragment
 import dagger.Subcomponent
 
 @FirstScope
@@ -8,6 +9,7 @@ import dagger.Subcomponent
 interface FirstComponent {
 
     fun inject(firstActivity: FirstActivity)
+    fun inject(imageListFragment: ImageListFragment)
 
     @Subcomponent.Builder
      interface Builder{

@@ -9,9 +9,11 @@ import javax.inject.Inject
 
 class MainObjViewModel (private val repository: MainRepository)   : ViewModel(){
 
-    //TODO must have a variable of list mainObj
+    companion object {
+        private const val TAG = "MainObjViewModel"
+    }
 
-    val allMainObjs : LiveData<List<MainObject>> = repository.getAllMainObj()
+    val  allMainObjs : LiveData<List<MainObject>> = repository.getAllMainObj()
 
 
     fun getMainObj(): LiveData<List<MainObject>>{
