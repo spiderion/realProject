@@ -14,30 +14,30 @@ import java.util.concurrent.TimeUnit
 
 object RetrofitObj {
 
-        private const val TAG = "RetrofitObj"
+    private const val TAG = "RetrofitObj"
 
 
     val api: Api
-    get() {
-        Log.d(TAG, "api: retrofitObj build ")
+        get() {
+            Log.d(TAG, "api: retrofitObj build ")
 
-        val intr = HttpLoggingInterceptor()
-        intr.level = HttpLoggingInterceptor.Level.BODY
+            val intr = HttpLoggingInterceptor()
+            intr.level = HttpLoggingInterceptor.Level.BODY
 
-        val client = OkHttpClient()
-                .newBuilder()
-                .addInterceptor(intr)
-                .writeTimeout(WRITE_TIMEOUT,TimeUnit.SECONDS)
-                .connectTimeout(CONNECTION_TIMEOUT,TimeUnit.SECONDS)
-                .readTimeout(READ_TIMEOUT,TimeUnit.SECONDS)
-                .build()
+            val client = OkHttpClient()
+                    .newBuilder()
+                    .addInterceptor(intr)
+                    .writeTimeout(WRITE_TIMEOUT, TimeUnit.SECONDS)
+                    .connectTimeout(CONNECTION_TIMEOUT, TimeUnit.SECONDS)
+                    .readTimeout(READ_TIMEOUT, TimeUnit.SECONDS)
+                    .build()
 
-        val retrofit = Retrofit.Builder()
-                .baseUrl(BASE_URL)
-                .addConverterFactory(GsonConverterFactory.create())
-                .client(client)
-                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
-                .build()
-        return retrofit.create(Api::class.java)
-    }
+            val retrofit = Retrofit.Builder()
+                    .baseUrl(BASE_URL)
+                    .addConverterFactory(GsonConverterFactory.create())
+                    .client(client)
+                    .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+                    .build()
+            return retrofit.create(Api::class.java)
+        }
 }

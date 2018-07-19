@@ -10,7 +10,8 @@ class MainViewModelFactory(private val mainRepository: MainRepository) : ViewMod
     companion object {
         private const val TAG = "MainViewModelFactory"
     }
-   //Due to method definitions in ViewModelProvider.Factory
+
+    //Due to method definitions in ViewModelProvider.Factory
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
 
         if (modelClass.isAssignableFrom(MainObjViewModel::class.java)) {

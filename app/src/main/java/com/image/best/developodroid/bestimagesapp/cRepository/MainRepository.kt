@@ -20,14 +20,14 @@ class MainRepository @Inject constructor(database: MainDatabase, retrofit: Retro
 
     fun getAllMainObj(): LiveData<List<MainObject>> = mMainDao.allMainObj
 
-    fun searchNetwork(page:Int,search : String ){
-          mRetrofitObj.api.search(page,search)
+    fun searchNetwork(page: Int, search: String) {
+        mRetrofitObj.api.search(page, search)
                 .subscribeOn(Schedulers.io())
-                .subscribe{it -> insertMainObj(it)}
+                .subscribe { it -> insertMainObj(it) }
 
     }
 
-    private fun insertMainObj(mainObject: MainObject){
+    private fun insertMainObj(mainObject: MainObject) {
 
         mMainDao.insert(mainObject)
 

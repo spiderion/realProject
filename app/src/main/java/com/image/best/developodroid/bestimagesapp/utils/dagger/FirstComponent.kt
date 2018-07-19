@@ -12,9 +12,9 @@ interface FirstComponent {
     fun inject(imageListFragment: ImageListFragment)
 
     @Subcomponent.Builder
-     interface Builder{
+    interface Builder {
         fun firstModule(firstModule: FirstModule): Builder
 
-        fun build() : FirstComponent
+        fun build(): FirstComponent
     }
 }

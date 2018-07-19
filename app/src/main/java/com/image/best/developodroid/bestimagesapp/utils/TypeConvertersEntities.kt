@@ -6,7 +6,7 @@ import com.google.gson.reflect.TypeToken
 import com.image.best.developodroid.bestimagesapp.dDatabase.entities.Result
 import java.util.*
 
-class Converters {
+class TypeConvertersEntities {
     var gson = Gson()
 
     @TypeConverter
@@ -25,9 +25,7 @@ class Converters {
             return Collections.emptyList()
         }
 
-        val listType = object : TypeToken<List<Result>>() {
-
-        }.getType()
+        val listType = object : TypeToken<List<Result>>() {}.type
 
         return gson.fromJson(data, listType)
     }

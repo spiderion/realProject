@@ -15,5 +15,5 @@ interface Api {
     }
 
     @GET("/search/photos$apiKey")
-    fun search(@Query("page")page:Int,@Query("query")value:String): Observable<MainObject>
+    fun search(@Query("page") page: Int, @Query("query") value: String): Observable<MainObject>
 }

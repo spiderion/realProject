@@ -10,13 +10,14 @@ import com.image.best.developodroid.bestimagesapp.aActivities.fragments.ImageLis
 import com.image.best.developodroid.bestimagesapp.utils.App
 
 
-class FirstActivity: AppCompatActivity() {
+class FirstActivity : AppCompatActivity() {
 
     companion object {
-        private const val TAG =  "FirstActivity"
+        private const val TAG = "FirstActivity"
     }
 
-    lateinit var imageListFragment: ImageListFragment
+
+    private lateinit var imageListFragment: ImageListFragment
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,14 +26,14 @@ class FirstActivity: AppCompatActivity() {
         (application as App).component.firstComponentBuilder().build().inject(this)
         imageListFragment = ImageListFragment.newInstance()
 
-        savedInstanceState?: initfFragment()
+        savedInstanceState ?: initFragment()
     }
 
-   private fun initfFragment(){
-       Log.d(TAG, "initfFragment: ")
+    private fun initFragment() {
+        Log.d(TAG, "initFragment: ")
         supportFragmentManager
                 .beginTransaction()
-                .add(R.id.firstActivityLayout,imageListFragment,"imageList")
+                .add(R.id.firstActivityLayout, imageListFragment, "imageList")
                 .commit()
 
     }

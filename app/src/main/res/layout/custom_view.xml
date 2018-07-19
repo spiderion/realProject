@@ -1,121 +1,139 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v7.widget.CardView
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/cardview"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_marginBottom="3dp"
-    android:layout_marginTop="3dp"
-    android:layout_marginStart="1dp"
-    android:layout_marginEnd="1dp"
-    app:cardCornerRadius="12dp"
-    tools:context=".aActivities.FirstActivity">
+<layout>
+    <data>
+        <import type="com.image.best.developodroid.bestimagesapp.utils.DataBindingAdapters"/>
+        <variable
+            name="resultLayout"
+            type="com.image.best.developodroid.bestimagesapp.dDatabase.entities.Result"/>
 
-    <android.support.constraint.ConstraintLayout
+
+
+    </data>
+
+    <android.support.v7.widget.CardView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/cardview"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="3dp"
+        android:layout_marginTop="3dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginEnd="1dp"
+        app:cardViewColor="@{resultLayout}"
+        app:cardCornerRadius="12dp"
+        tools:context=".aActivities.FirstActivity">
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
 
-        <ImageView
-            android:id="@+id/mainImage"
-            android:layout_width="0dp"
-            android:layout_height="253dp"
-            android:layout_marginTop="7dp"
-            android:scaleType="centerCrop"
-            android:src="@drawable/ic_launcher_background"
-            app:layout_constraintCircleRadius="@dimen/cardview_default_elevation"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/user_name" />
+            <ImageView
+                android:id="@+id/mainImage"
+                android:layout_width="0dp"
+                android:layout_height="253dp"
+                android:layout_marginTop="7dp"
+                android:scaleType="centerCrop"
+                app:imageUrlGlide="@{resultLayout.urls.regular}"
+                app:layout_constraintCircleRadius="@dimen/cardview_default_elevation"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/user_name" />
 
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/profileImage"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_marginStart="8dp"
-            android:src="@drawable/ic_launcher_background"
-            app:layout_constraintBottom_toTopOf="@+id/mainImage"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/mainImage" />
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/profileImage"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginStart="8dp"
+                app:imageUrlGlide="@{resultLayout.user.profile_image.large}"
+                app:layout_constraintBottom_toTopOf="@+id/mainImage"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/mainImage" />
 
-        <ImageView
-            android:id="@+id/dvnBtnView"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginTop="8dp"
-            android:src="@drawable/download"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/mainImage" />
+            <ImageView
+                android:id="@+id/dvnBtnView"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginTop="8dp"
+                app:setPerceptiveColor="@{resultLayout}"
+                android:src="@drawable/download"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/mainImage" />
 
-        <TextView
-            android:id="@+id/user_name"
-            android:layout_width="157dp"
-            android:layout_height="35dp"
-            android:layout_marginBottom="7dp"
-            android:layout_marginStart="8dp"
-            android:layout_toEndOf="@id/profileImage"
-            android:fontFamily="@font/aclonica"
-            android:gravity="bottom"
-            android:text="giovanni"
-            android:textSize="14sp"
-            app:layout_constraintBottom_toTopOf="@+id/mainImage"
-            app:layout_constraintStart_toEndOf="@+id/profileImage" />
+            <TextView
+                android:id="@+id/user_name"
+                android:layout_width="157dp"
+                android:layout_height="35dp"
+                android:layout_marginBottom="7dp"
+                android:layout_marginStart="8dp"
+                android:layout_toEndOf="@id/profileImage"
+                android:fontFamily="@font/aclonica"
+                android:gravity="bottom"
+                app:setPerceptiveColor="@{resultLayout}"
+                android:text="@{resultLayout.user.name}"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toTopOf="@+id/mainImage"
+                app:layout_constraintStart_toEndOf="@+id/profileImage" />
 
-        <TextView
-            android:id="@+id/tagTitleTextView"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_marginEnd="8dp"
-            android:layout_marginStart="8dp"
-            android:fontFamily="@font/dekko"
-            android:maxLines="1"
-            android:ellipsize="end"
-            android:text="tags tag tags tags att taaag tag tag tag taga tag "
-            android:textAlignment="textStart"
-            android:textSize="14sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/likesTextView" />
+            <TextView
+                android:id="@+id/tagTitleTextView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:fontFamily="@font/dekko"
+                app:setPerceptiveColor="@{resultLayout}"
+                android:maxLines="1"
+                android:ellipsize="end"
+                app:listTagsToString="@{resultLayout}"
+                android:textAlignment="textStart"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/likesTextView" />
 
-        <TextView
-            android:id="@+id/likesTextView"
-            android:layout_width="0dp"
-            android:layout_height="21dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:gravity="center"
-            android:text="12 likes"
-            android:textAlignment="textStart"
-            android:textSize="14sp"
-            app:layout_constraintEnd_toStartOf="@+id/dvnBtnView"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/mainImage"
-            tools:ignore="RtlCompat" />
+            <TextView
+                android:id="@+id/likesTextView"
+                android:layout_width="0dp"
+                android:layout_height="21dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                app:setPerceptiveColor="@{resultLayout}"
+                android:gravity="center"
+                android:text="@{ String.valueOf(resultLayout.likes)+` like's`}"
+                android:textAlignment="textStart"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toStartOf="@+id/dvnBtnView"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/mainImage"
+                tools:ignore="RtlCompat" />
 
-        <TextView
-            android:id="@+id/timeAgo"
-            android:layout_width="151dp"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="7dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="17dp"
-            android:text="3 days ago"
-            android:textAlignment="center"
-            android:textSize="14sp"
-            app:layout_constraintBottom_toTopOf="@+id/mainImage"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/user_name"
-            app:layout_constraintTop_toTopOf="parent" />
+            <TextView
+                android:id="@+id/timeAgo"
+                android:layout_width="151dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="7dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="17dp"
+                app:setPerceptiveColor="@{resultLayout}"
+                app:timeAgo="@{resultLayout}"
+                android:textAlignment="center"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toTopOf="@+id/mainImage"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/user_name"
+                app:layout_constraintTop_toTopOf="parent" />
 
-    </android.support.constraint.ConstraintLayout>
+        </android.support.constraint.ConstraintLayout>
 
-</android.support.v7.widget.CardView>
+    </android.support.v7.widget.CardView>
+</layout>

@@ -9,7 +9,6 @@ import javax.inject.Singleton
 interface AppComponent {
 
 
-
     fun firstComponentBuilder(): FirstComponent.Builder
 
     fun mainRepository(): MainRepository

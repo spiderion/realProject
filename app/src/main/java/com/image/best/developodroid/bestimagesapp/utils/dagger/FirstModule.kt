@@ -11,7 +11,7 @@ class FirstModule {
 
     @FirstScope
     @Provides
-    fun providesMainViewModelFactory(mainRepository: MainRepository) : MainViewModelFactory{
+    fun providesMainViewModelFactory(mainRepository: MainRepository): MainViewModelFactory {
 
         return MainViewModelFactory(mainRepository)
     }

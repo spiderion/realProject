@@ -7,24 +7,23 @@ import com.image.best.developodroid.bestimagesapp.cRepository.MainRepository
 import com.image.best.developodroid.bestimagesapp.dDatabase.entities.MainObject
 import javax.inject.Inject
 
-class MainObjViewModel (private val repository: MainRepository)   : ViewModel(){
+class MainObjViewModel(private val repository: MainRepository) : ViewModel() {
 
     companion object {
         private const val TAG = "MainObjViewModel"
     }
 
-    val  allMainObjs : LiveData<List<MainObject>> = repository.getAllMainObj()
+    val allMainObjs: LiveData<List<MainObject>> = repository.getAllMainObj()
 
 
-    fun getMainObj(): LiveData<List<MainObject>>{
-      return   repository.getAllMainObj()
+    fun getMainObj(): LiveData<List<MainObject>> {
+        return repository.getAllMainObj()
     }
 
 
+    fun search(page: Int, search: String) {
 
-    fun search(page : Int , search: String ){
-
-        repository.searchNetwork(page,search)
+        repository.searchNetwork(page, search)
     }
 
 

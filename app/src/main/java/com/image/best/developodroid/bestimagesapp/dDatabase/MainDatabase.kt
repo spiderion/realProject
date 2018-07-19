@@ -7,28 +7,27 @@ import android.arch.persistence.room.RoomDatabase
 import android.arch.persistence.room.TypeConverters
 import android.content.Context
 import com.image.best.developodroid.bestimagesapp.dDatabase.entities.MainObject
-import com.image.best.developodroid.bestimagesapp.utils.Converters
+import com.image.best.developodroid.bestimagesapp.utils.TypeConvertersEntities
 
-@Database(entities = [MainObject::class],version = 3)
-@TypeConverters(Converters::class)
-abstract class MainDatabase :RoomDatabase(){
+@Database(entities = [MainObject::class], version = 3)
+@TypeConverters(TypeConvertersEntities::class)
+abstract class MainDatabase : RoomDatabase() {
 
 
-
-    abstract fun mainDao():MainDao
+    abstract fun mainDao(): MainDao
 
     companion object {
         private const val TAG = "MainDatabase"
 
-        private var INSTANCE: MainDatabase?=null
+        private var INSTANCE: MainDatabase? = null
 
-        fun getDatabase (context: Context):MainDatabase{
-            if(INSTANCE==null){
-                synchronized(MainDatabase::class.java){
-                    if(INSTANCE==null){
+        fun getDatabase(context: Context): MainDatabase {
+            if (INSTANCE == null) {
+                synchronized(MainDatabase::class.java) {
+                    if (INSTANCE == null) {
 
                         INSTANCE = Room.databaseBuilder(context.applicationContext,
-                                MainDatabase::class.java,"MainDataBase")
+                                MainDatabase::class.java, "MainDataBase")
                                 .addCallback(sRoomdataBaseCallback)
                                 .fallbackToDestructiveMigration().build()
                     }

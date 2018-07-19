@@ -1,15 +1,12 @@
 package com.image.best.developodroid.bestimagesapp.aAdapters
 
-import android.graphics.Color
 import android.support.v7.widget.RecyclerView
+import android.util.Log
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import com.bumptech.glide.Glide
-import com.image.best.developodroid.bestimagesapp.R
 import com.image.best.developodroid.bestimagesapp.dDatabase.entities.MainObject
 import com.image.best.developodroid.bestimagesapp.dDatabase.entities.Result
-import kotlinx.android.synthetic.main.custom_view.view.*
+import com.image.best.developodroid.bestimagesapp.databinding.CustomViewBinding
 
 class AdapterRecyclerView : RecyclerView.Adapter<AdapterRecyclerView.CustomHolder>() {
 
@@ -17,12 +14,13 @@ class AdapterRecyclerView : RecyclerView.Adapter<AdapterRecyclerView.CustomHolde
         private const val TAG = "AdapterRecyclerView"
     }
 
-    private var mainObject : MainObject? = null
+    private var mainObject: MainObject? = null
 
 
     override fun onCreateViewHolder(p0: ViewGroup, p1: Int): CustomHolder {
-        val v = LayoutInflater.from(p0.context).inflate(R.layout.custom_view, p0, false)
-        return CustomHolder(v)
+        val layoutInflater = LayoutInflater.from(p0.context)
+        val itemBinding = CustomViewBinding.inflate(layoutInflater, p0, false)
+        return CustomHolder(itemBinding)
     }
 
     override fun getItemCount(): Int = mainObject?.results?.count() ?: 0
@@ -31,36 +29,23 @@ class AdapterRecyclerView : RecyclerView.Adapter<AdapterRecyclerView.CustomHolde
         p0.bind(mainObject?.results?.get(p1))
     }
 
-    fun setMainObj(mainObject: MainObject?){
-        if(mainObject!=null)
-        this.mainObject= mainObject
+    fun setMainObj(mainObject: MainObject?) {
+        if (mainObject != null)
+            this.mainObject = mainObject
 
         notifyDataSetChanged()
     }
 
-    class CustomHolder(view: View) : RecyclerView.ViewHolder(view){
+    class CustomHolder(private val binding: CustomViewBinding) : RecyclerView.ViewHolder(binding.root) {
 
-        private var tags  : StringBuilder?=StringBuilder("")
+        fun bind(item: Result?) {
 
-        fun bind(item : Result?){
-            with(itemView){
+            Log.d(TAG, "bind: ")
 
-                for (tag in item?.tags!!){
-                    tags?.append(" #${tag.title}")
-                }
-                tagTitleTextView.text=tags
+            with(itemView) {
 
-                //user profile image
-                Glide.with(profileImage.context).load(item.user?.profile_image?.large).into(profileImage)
-                //main image
-                Glide.with(mainImage.context).load(item.urls?.regular).into(mainImage)
-                // user name
-                user_name.text = item.user?.name
-                // layout background color
-                cardview.setCardBackgroundColor(Color.parseColor(item.color))
-                // likes
-                likesTextView.text= "${item.likes} likes"
-
+                binding.resultLayout = item
+                binding.executePendingBindings()
 
             }
         }
