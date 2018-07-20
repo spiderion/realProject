@@ -16,7 +16,6 @@ class FirstActivity : AppCompatActivity() {
         private const val TAG = "FirstActivity"
     }
 
-
     private lateinit var imageListFragment: ImageListFragment
 
     override fun onCreate(savedInstanceState: Bundle?) {

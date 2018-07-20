@@ -13,18 +13,14 @@ class MainObjViewModel(private val repository: MainRepository) : ViewModel() {
         private const val TAG = "MainObjViewModel"
     }
 
-    val allMainObjs: LiveData<List<MainObject>> = repository.getAllMainObj()
-
+    private val allMainObjs: LiveData<List<MainObject>> = repository.getAllMainObj()
 
     fun getMainObj(): LiveData<List<MainObject>> {
-        return repository.getAllMainObj()
+        return allMainObjs
     }
-
 
     fun search(page: Int, search: String) {
 
         repository.searchNetwork(page, search)
     }
-
-
 }

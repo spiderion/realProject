@@ -8,7 +8,6 @@ import dagger.Provides
 @Module
 class FirstModule {
 
-
     @FirstScope
     @Provides
     fun providesMainViewModelFactory(mainRepository: MainRepository): MainViewModelFactory {

@@ -16,7 +16,6 @@ class AdapterRecyclerView : RecyclerView.Adapter<AdapterRecyclerView.CustomHolde
 
     private var mainObject: MainObject? = null
 
-
     override fun onCreateViewHolder(p0: ViewGroup, p1: Int): CustomHolder {
         val layoutInflater = LayoutInflater.from(p0.context)
         val itemBinding = CustomViewBinding.inflate(layoutInflater, p0, false)

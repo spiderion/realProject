@@ -39,16 +39,7 @@ abstract class MainDatabase : RoomDatabase() {
         private val sRoomdataBaseCallback = object : RoomDatabase.Callback() {
             override fun onOpen(db: SupportSQLiteDatabase) {
                 super.onOpen(db)
-
-                /*    launch(CommonPool){ //when the app starts a background thread deletes all the word and add 2 new ones
-                        val mDao = INSTANCE?.wordDao()
-                        var word = Word("Hello")
-                        mDao?.deleteAll() // this part deletes all the words
-                        mDao?.insert(word)
-                        word = Word("World")
-                        mDao?.insert(word)
-                    }*/
-
+                // TODO do operation in database when app starts using doAsync{}
             }
         }
     }

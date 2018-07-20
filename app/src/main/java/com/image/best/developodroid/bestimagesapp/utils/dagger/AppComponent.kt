@@ -8,7 +8,6 @@ import javax.inject.Singleton
 @Component(modules = [AndroidModule::class])
 interface AppComponent {
 
-
     fun firstComponentBuilder(): FirstComponent.Builder
 
     fun mainRepository(): MainRepository

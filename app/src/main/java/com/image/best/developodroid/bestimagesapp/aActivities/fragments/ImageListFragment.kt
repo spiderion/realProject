@@ -23,9 +23,9 @@ import javax.inject.Inject
 
 
 class ImageListFragment : Fragment() {
+
     // dataBinding
     lateinit var fragBinding: FragmentImageListBinding
-
     private lateinit var adapter: AdapterRecyclerView
     @Inject
     lateinit var mainViewModelFactory: MainViewModelFactory
@@ -41,13 +41,10 @@ class ImageListFragment : Fragment() {
         (context?.applicationContext as App).component.firstComponentBuilder().build().inject(this)
     }
 
-
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-                              savedInstanceState: Bundle?): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         Log.d(TAG, "onCreateView: ")
 
         fragBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_image_list, container, false)
-
 
         return fragBinding.root
     }
@@ -60,10 +57,9 @@ class ImageListFragment : Fragment() {
         recyclerViewMainFrag.setHasFixedSize(true)
 
         val mainViewModel = ViewModelProviders.of(this, mainViewModelFactory).get(MainObjViewModel::class.java)
-        mainViewModel.allMainObjs.observe(this, Observer { it -> adapter.setMainObj(it?.get(0)) })
+        mainViewModel.getMainObj().observe(this, Observer { it -> adapter.setMainObj(it?.get(0)) })
 
     }
-
 
     override fun onDetach() {
         Log.d(TAG, "onDetach: ")

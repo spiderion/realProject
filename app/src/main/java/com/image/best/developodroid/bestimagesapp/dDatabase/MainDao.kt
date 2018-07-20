@@ -11,7 +11,6 @@ interface MainDao {
         private const val TAG = "MainDao"
     }
 
-
     @get:Query("SELECT * from MainObject")
     val allMainObj: LiveData<List<MainObject>>
 
