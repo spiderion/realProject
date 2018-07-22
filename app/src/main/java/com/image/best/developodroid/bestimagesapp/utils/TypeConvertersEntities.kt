@@ -7,7 +7,7 @@ import com.image.best.developodroid.bestimagesapp.dDatabase.entities.Result
 import java.util.*
 
 class TypeConvertersEntities {
-    var gson = Gson()
+    private var gson = Gson()
 
     @TypeConverter
     fun fromTimestamp(value: Long?): Date? {
